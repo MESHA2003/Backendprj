@@ -1,26 +1,16 @@
 from rest_framework import serializers
 from .models import *
 
-
-class DiaryEntryserializer(serializers.ModelSerializer):
-
-    class Meta:
-        
-        model=DiaryEntry
-        fields='__all__'
-
-class Usersettingserializer(serializers.ModelSerializer):
-    class Meta:
-        model= UserSetting
-        fields='__all__'
-
-class Tagserializer(serializers.ModelSerializer):
+class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
-        field='__all__'
+        fields = ['id', 'name', 'description']
 
-class DiaryEntryTagserializer(serializers.ModelSerializer):
+
+class DiaryEntrySerializer(serializers.ModelSerializer):
+    tag_name = serializers.CharField(source='tag.name', read_only=True)  # Include tag name for display
 
     class Meta:
-        model = DiaryEntryTag
-        field='__all__'
+        model = DiaryEntry
+        fields = ['id', 'title', 'content', 'created_at', 'entry_date', 'tag', 'tag_name']
+        read_only_fields = ['created_at']        
