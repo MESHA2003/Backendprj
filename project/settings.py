@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-qxpkjl9&+&5i2ikdmw@%q9vnduz7#7fakb31m$o$_zy7cn7$w$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['13.60.77.214','www.mydiary.com','127.0.0.1']
+ALLOWED_HOSTS = ['https://mydiarly.onrender.com','localhost','127.0.0.1']
 
 
 # Application definition
@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.whitenoisemiddleware',
 ]
 
 
